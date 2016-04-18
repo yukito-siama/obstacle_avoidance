@@ -1,13 +1,9 @@
 <launch>
-
 	<include file="$(find rplidar_ros)/launch/rplidar.launch">
-		<arg name="port" value="/dev/ttyUSB1" /> 
+		<arg name="port_lidar" value="/dev/ttyUSB1" /> 
 	</include>
 
-	<node pkg="obstacle_avoidance" type="rploa.py" name="rploa" output="screen">
-		<param name="port" value="/dev/ttyUSB0" />
-		<param name="withdraw_dis" value="2.0" />
-		<param name="disregard_dis" value="2.5" />
-		<param name="min_valid_range" value="0.3" />
-	</node>
+	<include file="$(find obstacle_avoidance)/launch/rploa.launch">
+		<arg name="port_pixhawk" value="/dev/ttyUSB0" /> 
+	</include>
 </launch>
