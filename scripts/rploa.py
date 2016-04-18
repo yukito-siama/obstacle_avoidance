@@ -38,7 +38,7 @@ def callback(scan):
 		flag = 'c'
 		
 	#calculate the direction in radian
-	direction = min_idx / 360.0 * math.pi
+	direction = min_idx * math.pi / 180
 
 	packet = struct.pack("<cffc", flag, direction, min_rng, '%')
 	
